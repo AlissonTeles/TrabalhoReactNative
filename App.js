@@ -1,20 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { SafeAreaView } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-export default function App() {
+import HomeScreen from "./src/screens/home/home";
+import RecipeScreen from "./src/screens/receita/recipe";
+import CategoryScreen from "./src/screens/categorias/category";
+import Icon from "react-native-vector-icons/FontAwesome5";
+const Drawer = createDrawerNavigator();
+
+function DrawerNavigator() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          drawerIcon: ({ size }) => {
+            return <Icon name="home" size={size} />;
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="Receita"
+        component={RecipeScreen}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="Categorias"
+        component={CategoryScreen}
+        options={{
+          drawerIcon: ({ size }) => {
+            return <Icon name="book" size={size} />;
+          },
+        }}
+      />
+    </Drawer.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <DrawerNavigator />
+      </NavigationContainer>
+    </SafeAreaView>
+  );
+};
+
+export default App;
