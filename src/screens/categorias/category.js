@@ -9,6 +9,7 @@ import {
 import { data, category } from "../../data/data"; // Pega o json que precisamos
 import styles from "./style";
 
+// Ao Clickar no item da categoria ele vai para as receitas
 function goToRecipe(navigation, item) {
   console.log(item.id);
   navigation.navigate("Receita", {

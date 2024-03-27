@@ -10,12 +10,14 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   touchable: {
-    width: (width - 60) / 2,
+    // Width total - as margem = 20 cada )
+    width: width - 40,
     borderRadius: 20,
+    marginBottom: 20,
   },
   itemImg: {
-    // Width total - as 2 bordas - o gap das colunas
-    width: (width - 60) / 2,
+    // Width total - as margem = 20 cada )
+    width: width - 40,
     height: 150,
     borderRadius: 15,
     borderBottomLeftRadius: 0,
@@ -26,22 +28,24 @@ const styles = StyleSheet.create({
   itemContainer: {
     borderRadius: 20,
     borderWidth: 0.5,
-    // Width total - as 2 bordas - o gap das colunas
-    width: (width - 60) / 2,
-    height: 250,
+    // Width total - as margem = 20 cada )
+    width: width - 40,
+    height: 300,
     alignItems: "center",
     justifyContent: "space-between",
   },
   flatListContent: {
-    columnGap: 20,
-    paddingHorizontal: 10,
+    alignItems: "center",
     paddingBottom: 20, // Margem no final da tela
+  },
+  acessos: {
+    color: "blue",
   },
   category: {
     color: "green",
   },
   title: {
-    fontSize: 18,
+    fontSize: 30,
     margin: 10,
     fontWeight: "bold",
   },
